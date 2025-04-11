@@ -1,4 +1,4 @@
-package com.example.frontapp
+package com.example.frontapp.model
 
 data class User(
     val id: Long? = null,

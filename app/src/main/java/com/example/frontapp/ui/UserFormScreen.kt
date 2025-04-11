@@ -1,12 +1,12 @@
-package com.example.frontapp.ui.theme
+package com.example.frontapp.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.frontapp.User
-import com.example.frontapp.UserClient
+import com.example.frontapp.model.User
+import com.example.frontapp.model.UserClient
 import kotlinx.coroutines.*
 
 @OptIn(ExperimentalMaterial3Api::class)

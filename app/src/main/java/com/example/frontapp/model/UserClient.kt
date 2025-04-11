@@ -1,4 +1,4 @@
-package com.example.frontapp
+package com.example.frontapp.model
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
