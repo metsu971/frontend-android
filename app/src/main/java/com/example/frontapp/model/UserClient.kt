@@ -11,7 +11,6 @@ class UserClient {
     private val client = OkHttpClient()
     private val gson = Gson()
 
-
     fun getUsers(): List<User> {
         val request = Request.Builder()
             .url("http://10.0.2.2:8080/users")
@@ -52,7 +51,7 @@ class UserClient {
         val json = gson.toJson(user)
         val body = json.toRequestBody("application/json".toMediaType())
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/users") // POST先URL
+            .url("http://10.0.2.2:8080/users")
             .post(body)
             .build()
 

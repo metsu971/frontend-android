@@ -7,13 +7,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.frontapp.model.User
 import com.example.frontapp.model.UserClient
+import com.example.frontapp.viewmodel.UserViewModel
 import kotlinx.coroutines.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserFormScreen(onUserAdded: () -> Unit) {
+fun UserFormScreen(viewModel: UserViewModel) {
     var name by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
     var isSubmitting by remember { mutableStateOf(false) }
 
     Column(modifier = Modifier.padding(16.dp)) {
@@ -24,34 +24,14 @@ fun UserFormScreen(onUserAdded: () -> Unit) {
             modifier = Modifier.fillMaxWidth()
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        OutlinedTextField(
-            value = email,
-            onValueChange = { email = it },
-            label = { Text("メールアドレス") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
             onClick = {
                 isSubmitting = true
-                CoroutineScope(Dispatchers.IO).launch {
-                    try {
-                        UserClient().createUser(User(name = name))
-                        withContext(Dispatchers.Main) {
-                            onUserAdded()
-                            name = ""
-                            email = ""
-                        }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    } finally {
-                        isSubmitting = false
-                    }
-                }
+                viewModel.addUser(User(name = name))
+                name = ""
+                isSubmitting = false
             },
             enabled = !isSubmitting
         ) {
