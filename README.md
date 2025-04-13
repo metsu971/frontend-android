@@ -33,6 +33,9 @@ Androidからバックエンド側のAPIのコールを想定した、簡単な�
 - UI は **Jetpack Compose** を使い、宣言的な UI 実装を実現。
 - バックエンド側の経験もあったため、Androidと絡めてバックエンド側も実装しました。
 
+## 今後改良したい箇所
+- BottomBarやTopBarを用意して、登録画面、一覧画面で分けつつ、あとはアプリバージョンなど用意して最低でもBottomBarから3画面は用意したいと思ってます。
+
 ## 参考にした情報
 - [Jetpack Compose 公式ガイド](https://developer.android.com/jetpack/compose/documentation)
 - [StateFlow と ViewModel の使い方](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
