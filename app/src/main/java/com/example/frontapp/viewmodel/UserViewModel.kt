@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class UserViewModel(
@@ -17,6 +18,8 @@ class UserViewModel(
 ) : ViewModel() {
     private val _users = MutableStateFlow<List<User>>(emptyList())
     val users: StateFlow<List<User>> = _users
+    private val _isSubmitting = MutableStateFlow(false)
+    val isSubmitting: StateFlow<Boolean> = _isSubmitting.asStateFlow()
 
     fun fetchUsers() {
         viewModelScope.launch(dispatcher) {
@@ -27,8 +30,10 @@ class UserViewModel(
 
     fun addUser(user: User) {
         viewModelScope.launch(dispatcher) {
+            _isSubmitting.value = true
             repository.addUser(user)
             fetchUsers()
+            _isSubmitting.value = false
         }
     }
 
