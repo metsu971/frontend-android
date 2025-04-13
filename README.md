@@ -1,14 +1,15 @@
 # Front App
 
-Spring Boot + Android を用いたユーザ管理アプリケーションです。
+Androidからバックエンド側のAPIのコールを想定した、簡単なユーザ管理アプリケーションです。
+短期間での構築を前提のため粗はあるかもしれませんが、API通信、JetpackCompose、Spring Boot と絡める等、業務や自己的に見てきた技術を披露することを目的に作成しました。
 
 ## Features
 - ユーザ情報のCRUD操作(新規作成 / 一覧表示 / 編集 / 削除)
 - Spring Boot と連携した REST API通信
-- Jetpack Compose 
+- Jetpack Compose
 - MVVM + Repositoryアーキテクチャ
 - 非同期処理
-- 単体テストを実装
+- 単体テストを一部実装
 
 ## 画面イメージ
 
