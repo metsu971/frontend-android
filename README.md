@@ -1,6 +1,6 @@
 # Front App
 
-Androidからバックエンド側のAPIのコールを想定した、簡単なユーザ管理アプリケーションです。
+Androidからバックエンド側(https://github.com/metsu971/backend-springboot)のAPIのコールを想定した、簡単なユーザ管理アプリケーションです。
 短期間での構築を前提のため粗はあるかもしれませんが、API通信、JetpackCompose、Spring Boot と絡める等、業務や自己的に見てきた技術を披露することを目的に作成しました。
 
 ## Features
