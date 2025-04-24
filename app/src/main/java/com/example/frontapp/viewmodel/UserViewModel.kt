@@ -21,6 +21,20 @@ class UserViewModel(
     private val _isSubmitting = MutableStateFlow(false)
     val isSubmitting: StateFlow<Boolean> = _isSubmitting.asStateFlow()
 
+    //起動時最初に出す音声入力モーダル
+    private val _shouldShowVoiceInputModal = MutableStateFlow(true)
+    val shouldShowVoiceInputModal : StateFlow<Boolean> = _shouldShowVoiceInputModal.asStateFlow()
+
+    fun onVoiceInputModalDismissed() {
+        _shouldShowVoiceInputModal.value = false
+    }
+
+    //生体認証
+    //直近10件のテキスト化メモ
+      //フリックで削除および音声確認を行えるようにする
+    //ボトムバーから他の画面へ遷移
+    //トップバーでお知らせを確認できる
+
     fun fetchUsers() {
         viewModelScope.launch(dispatcher) {
             val result = repository.getUsers()
